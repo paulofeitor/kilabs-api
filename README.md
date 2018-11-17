@@ -39,10 +39,8 @@ go run main.go
 ## Examples
 
 * Add a Candidate
-[POST] /candidate
-{
-    "Name": "Carl"
-}
+`[POST] /candidate`
+`{"Name": "Carl"}`
 Response:
 {
     "Id": 1,
