@@ -36,6 +36,93 @@ Then just start the service:
 go run main.go
 ```
 
+## Examples
+
+* Add a Candidate
+[POST] /candidate
+{
+    "Name": "Carl"
+}
+Response:
+{
+    "Id": 1,
+    "Name": "Carl"
+}
+
+* Add Carl's Time Slot
+[POST] /candidate/1/slot
+{
+    "InitialTime": "09:00",
+    "FinalTime": "11:00",
+    "Weekdays": [1,3,5]
+}
+Response
+{
+    "Id": 1,
+    "PersonId": 1,
+    "InitialTime": "09:00",
+    "FinalTime": "11:00",
+    "Weekdays": [1,3,5]
+}
+Weekdays are time.Weekdays (0-Sunday, etc...)
+
+* Add an Interviewer
+[POST] /interviewer
+{
+    "Name": "Ingrid"
+}
+Response
+{
+    "Id": 1,
+    "Name": "Ingrid"
+}
+
+* Add Ingrid's Time Slot
+[POST] /interviewer/1/slot
+{
+    "InitialTime": "08:00",
+    "FinalTime": "18:00",
+    "Weekdays": [3]
+}
+Response
+{
+    "Id": 2,
+    "PersonId": 1,
+    "InitialTime": "08:00",
+    "FinalTime": "18:00",
+    "Weekdays": [3]
+}
+
+* Check for a Slot Match
+[POST] /slot
+{
+    "Candidate": {
+        "Id": 1
+    },
+    "Interviewers": [
+        {
+            "Id": 1
+        }
+    ]
+}
+Response
+[
+    {
+        "InitialTime": "09:00:00",
+        "FinalTime": "10:00:00",
+        "Weekdays": [
+            3
+        ]
+    },
+    {
+        "InitialTime": "10:00:00",
+        "FinalTime": "11:00:00",
+        "Weekdays": [
+            3
+        ]
+    }
+]
+
 ## Structure
 ```
 ├── app
@@ -55,7 +142,6 @@ go run main.go
 ## Built With
 
 * [httprouter](https://github.com/julienschmidt/httprouter) - The Router Package used
-Based on:
 * [mingrammer REST API Example](https://github.com/mingrammer/go-todo-rest-api-example) - Example to structurize and implement routes and handlers
 
 ## Authors
