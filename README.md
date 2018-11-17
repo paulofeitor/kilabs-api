@@ -39,7 +39,7 @@ go run main.go
 ## Examples
 
 * Add a Candidate
- - [POST] /candidate
+	- [POST] /candidate
 ```json
 {
    "Name": "Carl"
@@ -91,7 +91,7 @@ Response
 ```
 
 * Add Ingrid's Time Slot
- - [POST] /interviewer/1/slot
+	- [POST] /interviewer/1/slot
 ```json
 {
     "InitialTime": "08:00",
@@ -111,7 +111,7 @@ Response
 ```
 
 * Check for a Slot Match
- - [POST] /slot
+	- [POST] /slot
 ```json
 {
     "Candidate": {
