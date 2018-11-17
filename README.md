@@ -42,7 +42,7 @@ go run main.go
  - [POST] /candidate
 ```json
 {
-	"Name": "Carl"
+   "Name": "Carl"
 }
 ```
 Response:
@@ -65,8 +65,8 @@ Response:
 Response
 ```json
 {
-		"Id": 1,
-  	"PersonId": 1,
+    "Id": 1,
+    "PersonId": 1,
     "InitialTime": "09:00",
     "FinalTime": "11:00",
     "Weekdays": [1,3,5]
