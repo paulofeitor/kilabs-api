@@ -39,50 +39,68 @@ go run main.go
 ## Examples
 
 * Add a Candidate
-`[POST] /candidate`
-`{"Name": "Carl"}`
+ - [POST] /candidate
+```json
+{
+	"Name": "Carl"
+}
+```
 Response:
+```json
 {
     "Id": 1,
     "Name": "Carl"
 }
+```
 
 * Add Carl's Time Slot
-[POST] /candidate/1/slot
+	- [POST] /candidate/1/slot
+```json
 {
     "InitialTime": "09:00",
     "FinalTime": "11:00",
     "Weekdays": [1,3,5]
 }
+```
 Response
+```json
 {
-    "Id": 1,
-    "PersonId": 1,
+		"Id": 1,
+  	"PersonId": 1,
     "InitialTime": "09:00",
     "FinalTime": "11:00",
     "Weekdays": [1,3,5]
 }
+```
 Weekdays are time.Weekdays (0-Sunday, etc...)
 
+
 * Add an Interviewer
-[POST] /interviewer
+	- [POST] /interviewer
+```json
 {
     "Name": "Ingrid"
 }
+```
 Response
+```json
 {
     "Id": 1,
     "Name": "Ingrid"
 }
+```
 
 * Add Ingrid's Time Slot
-[POST] /interviewer/1/slot
+ - [POST] /interviewer/1/slot
+```json
 {
     "InitialTime": "08:00",
     "FinalTime": "18:00",
     "Weekdays": [3]
 }
+```
 Response
+```json
 {
     "Id": 2,
     "PersonId": 1,
@@ -90,9 +108,11 @@ Response
     "FinalTime": "18:00",
     "Weekdays": [3]
 }
+```
 
 * Check for a Slot Match
-[POST] /slot
+ - [POST] /slot
+```json
 {
     "Candidate": {
         "Id": 1
@@ -103,7 +123,9 @@ Response
         }
     ]
 }
+```
 Response
+```json
 [
     {
         "InitialTime": "09:00:00",
@@ -120,6 +142,7 @@ Response
         ]
     }
 ]
+```
 
 ## Structure
 ```
