@@ -168,5 +168,3 @@ Response
 ## Authors
 
 * **Paulo Feitor** - [paulofeitor](https://github.com/paulofeitor)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
